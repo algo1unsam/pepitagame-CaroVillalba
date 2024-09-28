@@ -3,14 +3,15 @@ import wollok.game.*
 
 object pepita {
 
-	var property energia = 100
+	var property energia = 1000
 	var property position = game.origin()
 
 	method image() {
 		return if (self.estaEnElNido()){ 
 			"pepita-grande.png"}
 		else if (self.position() == silvestre.position() || self.energia() <= 0) {
-			"pepita-gris.png"}
+			"pepita-gris.png"
+			}
 		 else {
 		"pepita.png"}
 	}
@@ -33,14 +34,24 @@ object pepita {
 		if(!self.estaCansada()){
 			self.vola(position.distance(nuevaPosicion))
 			position = nuevaPosicion
-	} 
+	} else{
+		 self.terminar()
 	}
-	
+	}
+
+
+	method terminar(){
+		game.stop()
+	}
 
 	method estaCansada() {
 		return energia <= 0
 	}
 	
+	method gane(){
+		if(game.uniqueCollider(self))
+		nido.teEncontro(self)
+	}
 
 	method estaEnElNido() {
 		return position == nido.position()
