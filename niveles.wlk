@@ -45,8 +45,20 @@ object tutorial3 {
 object config {
 
 	method configurarTeclas() {
-		keyboard.left().onPressDo({ pepita.irA(pepita.position().left(1)) })
-		keyboard.right().onPressDo({ pepita.irA(pepita.position().right(1))})
+
+		keyboard.left().onPressDo({if(pepita.position().x() < 0 || pepita.position().x() > 0){
+			pepita.irA(pepita.position().left(1))}})
+
+		keyboard.right().onPressDo({ if(pepita.position().x()< 9)
+			{pepita.irA(pepita.position().right(1))}})
+
+		keyboard.up().onPressDo({if(pepita.position().y () < 9){
+			pepita.irA(pepita.position().up(1))}})
+
+		keyboard.down().onPressDo({if(pepita.position().y() <= 0 || pepita.position().y() >= 0) 
+			{pepita.irA(pepita.position().down(1))}})
+
+		keyboard.c().onPressDo({pepita.come(game.uniqueCollider(pepita)) game.removeVisual(game.uniqueCollider(pepita))}) 
 	}
 	
 	method configurarColisiones() {
