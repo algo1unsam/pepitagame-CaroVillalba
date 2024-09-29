@@ -7,6 +7,7 @@ object nido {
 
 	method image() = "nido.png"
 
+
 	method teEncontro(ave) {
 		game.say(ave, "GANE")
 		game.schedule(2000, { game.stop() })

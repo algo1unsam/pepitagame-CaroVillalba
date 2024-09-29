@@ -62,7 +62,7 @@ object config {
 	}
 	
 	method configurarColisiones() {
-		game.onCollideDo(pepita, { algo => if(algo != alpiste && algo != manzana){algo.teEncontro(pepita)}})
+		game.whenCollideDo(pepita, { algo => if(algo != alpiste && algo != manzana) algo.teEncontro(pepita)})
 	}
 
 

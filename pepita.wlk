@@ -3,7 +3,7 @@ import wollok.game.*
 
 object pepita {
 
-	var property energia = 1000
+	var property energia = 100
 	var property position = game.origin()
 
 	method image() {
@@ -48,10 +48,6 @@ object pepita {
 		return energia <= 0
 	}
 	
-	method gane(){
-		if(game.uniqueCollider(self))
-		nido.teEncontro(self)
-	}
 
 	method estaEnElNido() {
 		return position == nido.position()
